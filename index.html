@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>loading screen</title>
+        <style>
+            body {
+                background-color: #ED3232;
+            }
+            .a {
+                width: 100px;
+                height: 100px;
+                background-color: #ED3232;
+                border-radius: 10rem 10rem 10rem 10rem;
+                border: 4px solid white;
+                margin: auto;
+                margin-top: 50%;
+                animation: putar 1.2s infinite;
+            }
+            .b {
+                width: 60px;
+                height: 60px;
+                background-color: #ED3232;
+                margin-top: -10px;
+                margin-left: -10px;
+            }
+            @keyframes putar {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="a">
+            <div class="b"></div>
+        </div>
+    </body>
+</html>
