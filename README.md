@@ -1,2 +1,4 @@
 # HTMLproject
-Kumpulan file html saya?
+Repository ini berisi kumpulan file html saya
+
+Hohooo 🤔
