@@ -1,4 +1,2 @@
-# HTMLproject
-Repository ini berisi kumpulan file html saya
-
-Hohooo 🤔
+# HTML
+Terkumpulnya fail fail HTML Oooo
