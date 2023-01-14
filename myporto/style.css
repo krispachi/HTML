@@ -1,8 +1,0 @@
-body {
-    height: 100vh;
-}
-
-.carousel img {
-    height: 80vh;
-    object-fit: cover;
-}
