@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    background-color: #ddd;
+    font-size: 18px;
+    font-family: 'Space Mono', monospace, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    margin: 50px;
+}
+
+section {
+    scroll-margin-top: 7px;
+}
+
+/* Container */
+.container {
+    display: grid;
+    gap: 8px;
+
+}
+
+/* Header */
+.header {
+    display: grid;
+    grid-template-areas: 'hero hero feature-1'
+                         'hero hero feature-2';
+}
+
+.hero {
+    grid-area: hero;
+    min-height: 300px;
+    padding: 50px;
+    background-image: url(img/a.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+.hero > * {
+    display: none;
+}
+
+.features {
+    background-color: #000;
+    color: #fff;
+    display: grid;
+    /* justify-content: center;
+    align-content: center; */
+    place-content: center;
+    text-align: center;
+    cursor: pointer;
+    min-height: 150px;
+}
+.features .item {
+    font-size: 2em;
+}
+.feature-1 {
+    grid-area: feature-1;
+    background-image: url(img/b.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.feature-2 {
+    grid-area: feature-2;
+    background-image: url(img/c.png);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navigation */
+.menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    box-sizing: border-box;
+}
+.menu .brand {
+    font-size: 1em;
+    color: #222;
+}
+.menu ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+}
+.menu a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    display: block;
+    text-align: center;
+    padding: 8px;
+}
+.menu a:hover {
+    color: #000;
+    background-color: #ddd;
+    box-shadow: inset 0 0 0 2px black;
+}
+.menu a:active {
+    box-shadow: inset 0 0 0 4px black;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    position: relative;
+    padding-top: 1px;
+    z-index: 2;
+}
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: black;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+.menu-toggle input {
+    display: block;
+    position: absolute;
+    background-color: black;
+    width: 40px;
+    height: 28px;
+    left: -5;
+    top: -5;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* Hamburger Menu Animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+.menu-toggle input:checked ~ span:nth-child(2) {
+    background-color: white;
+    transform: rotate(45deg) translate(3px, -5px);
+}
+.menu-toggle input:checked ~ span:nth-child(4) {
+    background-color: white;
+    transform: rotate(-45deg) translate(3px, 4px);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+    background-color: white;
+    opacity: 0;
+    transform: translateX(-23px);
+}
+
+/* Services */
+.section-title {
+    text-align: center;
+}
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px;
+}
+.service {
+    background-color: white;
+    padding: 20px;
+}
+.service .icon, .service h3 {
+    display: inline-block;
+}
+.service p {
+    text-indent: 2em;
+}
+
+/* Weapon */
+.weapon {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    gap: 8px;
+}
+.weapon div {
+    background-color: white;
+    padding: 50px;
+}
+.weapon p {
+    text-indent: 2em;
+}
+
+/* Achievement */
+.achievement {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 8px;
+}
+.achievement h3 {
+    grid-column: 1 / -1;
+    text-align: center;
+}
+
+/* Responsive Breakpoint */
+@media screen and (max-width: 1024px) {
+    .menu {
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+    .menu .brand {
+        display: none;
+    }
+
+    .hero > * {
+        display: inherit;
+    }
+}
+@media (max-width: 768px) {
+    .menu {
+        order: -1;
+        justify-items: end;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .menu ul {
+        display: flex;
+        position: absolute;
+        right: 0;
+        top:0 ;
+        height: 100vh;
+        background-color: black;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 1;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 1s;
+    }
+    .menu ul.slide {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .menu li {
+        width: 40%;
+    }
+    .menu a:hover {
+        color: white;
+        background-color: black;
+        box-shadow: inset 0 0 0 2px white;
+    }
+}
+@media screen and (max-width: 600px) {
+    body {
+        margin: 25px;
+    }
+    .header {
+        grid-template-areas: 'hero'
+                             'feature-1'
+                             'feature-2';
+    }
+}
