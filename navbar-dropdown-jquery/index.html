@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Dropdown JQuery</title>
+    <script src="jquery.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: monospace;
+            font-size: 1.05em;
+        }
+        body {
+            padding: 10px;
+            background-color: darkslategray;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(auto-fit, 1fr);
+            gap: 10px;
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+        }
+        ul {
+            list-style: none;
+        }
+        /* ::selection {
+            background-color: currentColor;
+            filter: invert(100%);
+        } */
+        
+        /* header {
+            position: sticky;
+            top: 10px;
+        } */
+        header .navbar {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            color: white;
+            background-color: darkcyan;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .navbar:hover {
+            background-color: rgb(0, 157, 157);
+        }
+        header .navbar h1 {
+            font-size: 1.4em;
+            margin-left: 30px;
+        }
+        header .navbar a {
+            color: white;
+            background-color: lightseagreen;
+            padding: 10px 14px;
+            border-radius: 12px;
+        }
+        header .navbar a:hover {
+            background-color: darkturquoise;
+        }
+        header .navbar ul {
+            display: flex;
+            gap: 10px;
+        }
+        header .navbar .navbar-dropdown {
+            position: absolute;
+            display: none;
+            /* display: grid; */
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(auto-fit, 1fr);
+            padding: 20px 10px 10px;
+            background-color: rgb(0, 157, 157);
+            border-radius: 0 0 12px 12px;
+            margin: 0 0 0 -10px;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(auto-fit, 1fr);
+            gap: 10px;
+        }
+        main .container-hero {
+            width: 100%;
+            height: 60vh;
+            padding: 20px;
+            color: darkslategray;
+            background-color: azure;
+            border-radius: 12px;
+        }
+        main .container-hero h1 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        main .container-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 10px;
+        }
+        main .container-card .card {
+            color: darkslategray;
+            background-color: darkseagreen;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        main .container-card .card:hover {
+            background-color: rgb(135, 206, 135);
+        }
+        main .container-card .card h1 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        main .container-card .card p {
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: teal;
+            padding: 30px 10px;
+            border-radius: 12px;
+            font-size: 1em;
+            text-align: center;
+        }
+        footer:hover {
+            background-color: rgb(0, 143, 143);
+        }
+        footer {
+            color: lightsteelblue;
+        }
+        footer a {
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1>Krispachi</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">About</a>
+                    <ul class="navbar-dropdown">
+                        <li><a href="#">About Website</a></li>
+                        <li><a href="#">About Krispachi</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Portfolio</a></li>
+                <li>
+                    <a href="#">Contact</a>
+                    <ul class="navbar-dropdown">
+                        <li><a href="#">Github</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Service</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="container-hero">
+            <h1>Home Page</h1>
+            <p>Hallou, welcome to this site ;)</p>
+            <p>This is HERO</p><br>
+            <p>Weaknes:</p>
+            <p>- Mobile Not Responsive</p>
+            <p>- Navbar Dropdown Overflow</p>
+        </section>
+        <section class="container-card">
+            <div class="card">
+                <h1>Title Card</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, laboriosam? Delectus nobis facere maxime voluptas natus perferendis beatae fugiat voluptatum doloribus necessitatibus dicta reprehenderit sed provident fuga cum adipisci sapiente officiis eveniet ad repellendus, nesciunt autem corrupti accusamus! Neque sint ullam ducimus qui saepe tempore?</p>
+                <p>In, iste cumque repellendus, modi, delectus repudiandae reiciendis consequuntur asperiores quas inventore quaerat. Eius consequuntur ipsum nisi hic exercitationem ipsa vel laboriosam necessitatibus, mollitia aut vitae. Quas saepe repellendus asperiores necessitatibus fugit accusantium, sapiente vel!</p>
+            </div>
+            <div class="card">
+                <h1>Title Card</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, laboriosam? Delectus nobis facere maxime voluptas natus perferendis beatae fugiat voluptatum doloribus necessitatibus dicta reprehenderit sed provident fuga cum adipisci sapiente officiis eveniet ad repellendus, nesciunt autem corrupti accusamus! Neque sint ullam ducimus qui saepe tempore?</p>
+                <p>In, iste cumque repellendus, modi, delectus repudiandae reiciendis consequuntur asperiores quas inventore quaerat. Eius consequuntur ipsum nisi hic exercitationem ipsa vel laboriosam necessitatibus, mollitia aut vitae. Quas saepe repellendus asperiores necessitatibus fugit accusantium, sapiente vel!</p>
+            </div>
+            <div class="card">
+                <h1>Title Card</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, laboriosam? Delectus nobis facere maxime voluptas natus perferendis beatae fugiat voluptatum doloribus necessitatibus dicta reprehenderit sed provident fuga cum adipisci sapiente officiis eveniet ad repellendus, nesciunt autem corrupti accusamus! Neque sint ullam ducimus qui saepe tempore?</p>
+                <p>In, iste cumque repellendus, modi, delectus repudiandae reiciendis consequuntur asperiores quas inventore quaerat. Eius consequuntur ipsum nisi hic exercitationem ipsa vel laboriosam necessitatibus, mollitia aut vitae. Quas saepe repellendus asperiores necessitatibus fugit accusantium, sapiente vel!</p>
+            </div>
+            <div class="card">
+                <h1>Title Card</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, laboriosam? Delectus nobis facere maxime voluptas natus perferendis beatae fugiat voluptatum doloribus necessitatibus dicta reprehenderit sed provident fuga cum adipisci sapiente officiis eveniet ad repellendus, nesciunt autem corrupti accusamus! Neque sint ullam ducimus qui saepe tempore?</p>
+                <p>In, iste cumque repellendus, modi, delectus repudiandae reiciendis consequuntur asperiores quas inventore quaerat. Eius consequuntur ipsum nisi hic exercitationem ipsa vel laboriosam necessitatibus, mollitia aut vitae. Quas saepe repellendus asperiores necessitatibus fugit accusantium, sapiente vel!</p>
+            </div>
+            <div class="card">
+                <h1>Title Card</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, laboriosam? Delectus nobis facere maxime voluptas natus perferendis beatae fugiat voluptatum doloribus necessitatibus dicta reprehenderit sed provident fuga cum adipisci sapiente officiis eveniet ad repellendus, nesciunt autem corrupti accusamus! Neque sint ullam ducimus qui saepe tempore?</p>
+                <p>In, iste cumque repellendus, modi, delectus repudiandae reiciendis consequuntur asperiores quas inventore quaerat. Eius consequuntur ipsum nisi hic exercitationem ipsa vel laboriosam necessitatibus, mollitia aut vitae. Quas saepe repellendus asperiores necessitatibus fugit accusantium, sapiente vel!</p>
+            </div>
+            <div class="card">
+                <h1>Title Card</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, laboriosam? Delectus nobis facere maxime voluptas natus perferendis beatae fugiat voluptatum doloribus necessitatibus dicta reprehenderit sed provident fuga cum adipisci sapiente officiis eveniet ad repellendus, nesciunt autem corrupti accusamus! Neque sint ullam ducimus qui saepe tempore?</p>
+                <p>In, iste cumque repellendus, modi, delectus repudiandae reiciendis consequuntur asperiores quas inventore quaerat. Eius consequuntur ipsum nisi hic exercitationem ipsa vel laboriosam necessitatibus, mollitia aut vitae. Quas saepe repellendus asperiores necessitatibus fugit accusantium, sapiente vel!</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h3>Made By <a href="https://github.com/krispachi">Krispachi</a></h3>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $(".navbar li").hover(function() {
+                if($(this).find(".navbar-dropdown").width() >= 200) {
+                    $(this).find(".navbar-dropdown").css("right", "0");
+                }
+                $(this).find(".navbar-dropdown").slideToggle({
+                    duration: 100,
+                    start: function() {
+                        jQuery(this).css('display', 'grid');
+                    }
+                });
+            });
+
+            $(".navbar").hover(function() {
+                $(this).find(".navbar-dropdown").css("background-color", "rgb(0, 157, 157)");
+            }, function() {
+                $(this).find(".navbar-dropdown").css("background-color", "darkcyan");
+            });
+        });
+    </script>
+</body>
+</html>
